@@ -1,0 +1,13 @@
+.runtime/
+.venv/
+__pycache__/
+qa/
+figures/
+*.docx
+*.pdf
+*.zip
+*.xlsx
+*.xls
+*.env
+Cover_Letter.md
+Main_Manuscript.md

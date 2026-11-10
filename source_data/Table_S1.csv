@@ -1,0 +1,6 @@
+﻿Category,Reference,Workflow output and assessment
+Correct assignment,Known brand,Specific brand accepted by the experts
+Incorrect assignment,Known brand,Specific brand rejected by the experts
+Unverified assignment,Unresolved,Specific brand supplied
+Missed identification,Known brand,Unknown output
+Both unknown,Unresolved,Unknown output

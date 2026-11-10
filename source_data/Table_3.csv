@@ -1,0 +1,5 @@
+﻿Reasoning outcome,Search correct,Search not correct,Search both unknown,Total
+Correct,294,14,0,308
+Not correct,230,209,2,441
+Both unknown,0,72,179,251
+Total,524,295,181,1000

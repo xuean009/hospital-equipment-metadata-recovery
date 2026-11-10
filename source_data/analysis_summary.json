@@ -1,0 +1,332 @@
+{
+  "n": 1000,
+  "clusters": 418,
+  "repeated_clusters": 164,
+  "max_cluster": 41,
+  "known": 744,
+  "unresolved": 256,
+  "categories": [
+    {
+      "category": "病房护理及医院设备",
+      "n": 235,
+      "reasoning_correct": 44,
+      "search_correct": 104,
+      "unresolved": 88
+    },
+    {
+      "category": "消毒灭菌设备及器具",
+      "n": 118,
+      "reasoning_correct": 6,
+      "search_correct": 66,
+      "unresolved": 29
+    },
+    {
+      "category": "医用电子生理参数检测仪器设备",
+      "n": 109,
+      "reasoning_correct": 48,
+      "search_correct": 54,
+      "unresolved": 6
+    },
+    {
+      "category": "医用放射射线治疗设备",
+      "n": 93,
+      "reasoning_correct": 32,
+      "search_correct": 37,
+      "unresolved": 42
+    },
+    {
+      "category": "急救和生命支持设备",
+      "n": 76,
+      "reasoning_correct": 49,
+      "search_correct": 66,
+      "unresolved": 4
+    },
+    {
+      "category": "手术室设备及附件",
+      "n": 75,
+      "reasoning_correct": 31,
+      "search_correct": 61,
+      "unresolved": 5
+    },
+    {
+      "category": "临床检验设备",
+      "n": 59,
+      "reasoning_correct": 15,
+      "search_correct": 19,
+      "unresolved": 7
+    },
+    {
+      "category": "物理治疗、康复及体育治疗仪器设备",
+      "n": 53,
+      "reasoning_correct": 3,
+      "search_correct": 21,
+      "unresolved": 20
+    },
+    {
+      "category": "医用射线监检测设备及用具",
+      "n": 44,
+      "reasoning_correct": 31,
+      "search_correct": 31,
+      "unresolved": 12
+    },
+    {
+      "category": "医用超声波仪器及设备",
+      "n": 27,
+      "reasoning_correct": 22,
+      "search_correct": 23,
+      "unresolved": 1
+    },
+    {
+      "category": "其他医疗设备",
+      "n": 26,
+      "reasoning_correct": 3,
+      "search_correct": 3,
+      "unresolved": 14
+    },
+    {
+      "category": "医用 X 线附属设备及部件",
+      "n": 26,
+      "reasoning_correct": 9,
+      "search_correct": 12,
+      "unresolved": 0
+    },
+    {
+      "category": "医用射线防护设备",
+      "n": 14,
+      "reasoning_correct": 0,
+      "search_correct": 0,
+      "unresolved": 14
+    },
+    {
+      "category": "医用内窥镜",
+      "n": 10,
+      "reasoning_correct": 0,
+      "search_correct": 6,
+      "unresolved": 4
+    },
+    {
+      "category": "医用低温、冷疗设备",
+      "n": 9,
+      "reasoning_correct": 2,
+      "search_correct": 8,
+      "unresolved": 0
+    },
+    {
+      "category": "医用 X 线诊断设备",
+      "n": 6,
+      "reasoning_correct": 3,
+      "search_correct": 3,
+      "unresolved": 1
+    },
+    {
+      "category": "医用磁共振设备",
+      "n": 5,
+      "reasoning_correct": 5,
+      "search_correct": 5,
+      "unresolved": 0
+    },
+    {
+      "category": "医用磁共振设备辅助装置",
+      "n": 4,
+      "reasoning_correct": 1,
+      "search_correct": 1,
+      "unresolved": 3
+    },
+    {
+      "category": "药房设备及器具",
+      "n": 4,
+      "reasoning_correct": 0,
+      "search_correct": 0,
+      "unresolved": 4
+    },
+    {
+      "category": "体外循环设备",
+      "n": 2,
+      "reasoning_correct": 2,
+      "search_correct": 2,
+      "unresolved": 0
+    },
+    {
+      "category": "医用激光仪器及设备",
+      "n": 2,
+      "reasoning_correct": 1,
+      "search_correct": 1,
+      "unresolved": 0
+    },
+    {
+      "category": "手术器械",
+      "n": 1,
+      "reasoning_correct": 1,
+      "search_correct": 1,
+      "unresolved": 0
+    },
+    {
+      "category": "水质污染防治设备",
+      "n": 1,
+      "reasoning_correct": 0,
+      "search_correct": 0,
+      "unresolved": 1
+    },
+    {
+      "category": "防疫、防护卫生装备及器具",
+      "n": 1,
+      "reasoning_correct": 0,
+      "search_correct": 0,
+      "unresolved": 1
+    }
+  ],
+  "agreement": {
+    "一致": 946,
+    "不一致": 54
+  },
+  "specific": [
+    373,
+    720
+  ],
+  "correct": [
+    308,
+    524
+  ],
+  "outcomes": [
+    [
+      308,
+      60,
+      5,
+      376,
+      251
+    ],
+    [
+      524,
+      121,
+      75,
+      99,
+      181
+    ]
+  ],
+  "risk": [
+    {
+      "label": "Both workflows output a brand",
+      "n": 366,
+      "reasoning_correct": 305,
+      "search_correct": 326,
+      "unresolved": 3,
+      "search_yield": 0.8907103825136612,
+      "ci": [
+        0.8301886792452831,
+        0.9382362018881627
+      ]
+    },
+    {
+      "label": "Search only outputs a brand",
+      "n": 354,
+      "reasoning_correct": 0,
+      "search_correct": 198,
+      "unresolved": 72,
+      "search_yield": 0.559322033898305,
+      "ci": [
+        0.43014513060468945,
+        0.6674590130612292
+      ]
+    },
+    {
+      "label": "Reasoning only outputs a brand",
+      "n": 7,
+      "reasoning_correct": 3,
+      "search_correct": 0,
+      "unresolved": 2,
+      "search_yield": 0.0,
+      "ci": null
+    },
+    {
+      "label": "Neither workflow outputs a brand",
+      "n": 273,
+      "reasoning_correct": 0,
+      "search_correct": 0,
+      "unresolved": 179,
+      "search_yield": 0.0,
+      "ci": null
+    }
+  ],
+  "paired3": [
+    [
+      294,
+      14,
+      0
+    ],
+    [
+      230,
+      209,
+      2
+    ],
+    [
+      0,
+      72,
+      179
+    ]
+  ],
+  "paired2": [
+    [
+      294,
+      14
+    ],
+    [
+      230,
+      462
+    ]
+  ],
+  "difference": 0.216,
+  "difference_ci": [
+    0.14895782140818623,
+    0.2856009531558758
+  ],
+  "equal_group_difference": 0.13992515261478966,
+  "equal_group_ci": [
+    0.10523532704005192,
+    0.17601578970102136
+  ],
+  "yield_ci": [
+    [
+      0.24782555673382822,
+      0.3698794140661621
+    ],
+    [
+      0.4475872053808677,
+      0.5987204380581982
+    ]
+  ],
+  "conditional_ci": [
+    [
+      0.7624625330114547,
+      0.8867042562082895
+    ],
+    [
+      0.6511902281487655,
+      0.7910275951999154
+    ]
+  ],
+  "mcnemar_p": 1.5657940318250835e-51,
+  "bootstrap_B": 6000,
+  "seed": 20261029,
+  "runtime": [
+    {
+      "total": 36785.51,
+      "median": 35.175,
+      "q1": 30.200000000000003,
+      "q3": 41.9025
+    },
+    {
+      "total": 32614.01,
+      "median": 31.265,
+      "q1": 23.8825,
+      "q3": 38.57
+    }
+  ],
+  "input_filename": "数据集_全_已核查.xlsx",
+  "input_sha256": "1e7e116478cf5fa646645b77936f5eec2dc4dd2922419ca0f87a97f227b2ec12",
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "openpyxl": "3.1.5"
+  }
+}

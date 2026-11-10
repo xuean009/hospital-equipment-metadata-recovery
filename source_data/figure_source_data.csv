@@ -1,0 +1,23 @@
+﻿panel,measure,group,numerator_or_estimate,denominator,ci_lower,ci_upper,unit
+3a,specific_output,Reasoning,373,1000,,,records
+3a,conditional_correctness,Reasoning,308,373,0.7624625330114547,0.8867042562082895,proportion
+3b,Correct,Reasoning,308,1000,,,records
+3b,Incorrect,Reasoning,60,1000,,,records
+3b,Unverified,Reasoning,5,1000,,,records
+3b,Missed identification,Reasoning,376,1000,,,records
+3b,Both unknown,Reasoning,251,1000,,,records
+3a,specific_output,Web-enabled search,720,1000,,,records
+3a,conditional_correctness,Web-enabled search,524,720,0.6511902281487655,0.7910275951999154,proportion
+3b,Correct,Web-enabled search,524,1000,,,records
+3b,Incorrect,Web-enabled search,121,1000,,,records
+3b,Unverified,Web-enabled search,75,1000,,,records
+3b,Missed identification,Web-enabled search,99,1000,,,records
+3b,Both unknown,Web-enabled search,181,1000,,,records
+2b,paired_difference,Record-weighted,0.216,,0.14895782140818623,0.2856009531558758,proportion
+2b,paired_difference,Combination-weighted,0.13992515261478966,,0.10523532704005192,0.17601578970102136,proportion
+3c,search_correctness,Both workflows output a brand,326,366,0.8301886792452831,0.9382362018881627,proportion
+3c,search_correctness,Search only outputs a brand,198,354,0.43014513060468945,0.6674590130612292,proportion
+2a,Correct to Correct,Paired records,294,1000,,,records
+2a,Correct to Not correct,Paired records,14,1000,,,records
+2a,Not correct to Correct,Paired records,230,1000,,,records
+2a,Not correct to Not correct,Paired records,462,1000,,,records

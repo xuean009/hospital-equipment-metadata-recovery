@@ -1,0 +1,12 @@
+﻿Setting,Reasoning,Web-enabled search
+Provider,DeepSeek API,Tencent Cloud
+Model identifier,deepseek-reasoner,deepseek-v3.2
+Search,No search tool configured,enable_search = true
+Thinking,Reasoner model endpoint,thinking.type = enabled
+Streaming,Not requested,true
+Maximum output token setting,64000,8192
+Timeout,120 seconds,30-second connect; 180-second read
+Maximum attempts,5,5
+Temperature / top-p,Not explicitly supplied,Not explicitly supplied
+Input fields,Equipment name and model,Equipment name and model
+Structured fields,brand; generic_name; confidence; reason,brand; generic_name; confidence; reason

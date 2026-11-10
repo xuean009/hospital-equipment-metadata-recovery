@@ -1,0 +1,9 @@
+﻿Measure,Estimate (%) or points,95% CI
+Reasoning verified yield,30.8,24.8–37.0
+Search verified yield,52.4,44.8–59.9
+Reasoning conditional correctness,82.6,76.2–88.7
+Search conditional correctness,72.8,65.1–79.1
+"Record-weighted difference, points",21.6,14.9–28.6
+"Combination-weighted difference, points",14.0,10.5–17.6
+Search correctness when both output brands,89.1,83.0–93.8
+Search correctness when only search outputs a brand,55.9,43.0–66.7

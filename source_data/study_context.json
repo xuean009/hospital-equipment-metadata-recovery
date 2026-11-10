@@ -1,0 +1,16 @@
+{
+  "confirmed_on": "2026-10-30",
+  "source": "Historical fixed-asset ledger remediation pool",
+  "asset_years": "2010–2025",
+  "upstream_criterion": "Missing brand field",
+  "eligible_n": 1101,
+  "sample_n": 1000,
+  "model_run_period": "March 2026",
+  "expert_review_period": "April–May 2026",
+  "reference_sources": [
+    "internet sources",
+    "available equipment manuals"
+  ],
+  "provenance": "Source-pool restrictions and dates confirmed by the authors; not inferred from asset identifiers or reconstructed from absent analysis fields.",
+  "expert_acknowledgement": "Two non-author colleagues; unnamed; consent confirmed by authors."
+}

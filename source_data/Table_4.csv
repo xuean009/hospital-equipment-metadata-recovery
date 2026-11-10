@@ -1,0 +1,8 @@
+﻿Output stratum,n,Reasoning correct,Search correct,Reference unresolved,"Search correctness
+(95% CI)"
+Both workflows output a brand,366,305,326,3,"89.1%
+(83.0–93.8)"
+Search only outputs a brand,354,0,198,72,"55.9%
+(43.0–66.7)"
+Reasoning only outputs a brand,7,3,0,2,Not applicable
+Neither workflow outputs a brand,273,0,0,179,Not applicable
