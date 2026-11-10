@@ -7,7 +7,7 @@ from docx.shared import Pt
 from docx.oxml.ns import qn
 from build_documents import ROOT,setup,para,S
 
-URL='https://github.com/xuean009/hospital-equipment-metadata-recovery/tree/v1.0.0'
+URL='https://github.com/xuean009/hospital-equipment-metadata-recovery/tree/v1.0.1'
 d=setup(False)
 d.styles['Normal'].paragraph_format.line_spacing=1.15
 d.add_paragraph('Online Resource 2\nAggregate statistical results and reproducibility guide','Title')
@@ -17,7 +17,7 @@ para(d,'Yihan Qi and Zhenqi Zhang')
 para(d,'Sichuan Cancer Hospital & Institute, Sichuan Clinical Research Center for Cancer, Sichuan Cancer Center, Affiliated Cancer Hospital of University of Electronic Science and Technology of China, Chengdu 610041, China')
 para(d,'Corresponding author: Zhenqi Zhang; Email: 9xuean@gmail.com')
 d.add_heading('1 Purpose and access to code',1)
-para(d,'This resource presents the aggregate statistical results and instructions previously distributed with the code archive. It contains no new analyses. Code, original prompts, machine-readable aggregate data and the manuscript source are deposited in the public GitHub repository at the fixed submission version v1.0.0.')
+para(d,'This resource presents the aggregate statistical results and instructions previously distributed with the code archive. It contains no new analyses. Code, original prompts, machine-readable aggregate data and the manuscript source are deposited in the public GitHub repository at the fixed submission version v1.0.1.')
 para(d,URL,10)
 para(d,'Online Resource 1 provides detailed methods and original prompts. The record-level inventory remains restricted by the hospital; access requests must be addressed to the corresponding author and are subject to institutional approval. The repository contains no individual asset records, API credentials, cover letter or internal proofs.')
 d.add_heading('2 Analysis overview and interpretation',1)
@@ -42,7 +42,7 @@ for filename in ['Main_Manuscript.docx','ESM_1.docx']:
         if nxt is not None and nxt.tag==qn('w:p'):
             para(d,''.join(nxt.xpath('.//w:t/text()')),10)
 d.add_heading('4 Reproducing the published aggregates',1)
-para(d,'Download or clone the repository and select tag v1.0.0. Use Python 3.12 in a virtual environment and install requirements.txt. Run the following commands from the repository root; they rebuild figures and documents from supplied aggregates without reading individual records or making model calls.')
+para(d,'Download or clone the repository and select tag v1.0.1. Use Python 3.12 in a virtual environment and install requirements.txt. Run the following commands from the repository root; they rebuild figures and documents from supplied aggregates without reading individual records or making model calls.')
 for command in ['python -m pip install -r requirements.txt','python code/figures.py','python code/build_documents.py','python code/build_esm2.py']:
     para(d,command,10)
 para(d,'On Windows with Microsoft Word installed, run powershell -ExecutionPolicy Bypass -File code/render_qa.ps1 to export ESM_1.pdf and ESM_2.pdf. Then run python code/qa.py for document and aggregate checks. Inspect rendered pages because font or renderer changes may affect pagination. A cover letter is generated only in the private author directory when its Markdown source is present.')

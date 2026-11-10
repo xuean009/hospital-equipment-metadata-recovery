@@ -119,7 +119,7 @@ def figure(d, number):
     p.paragraph_format.line_spacing=1
     p.paragraph_format.keep_with_next=True
     p.alignment=WD_ALIGN_PARAGRAPH.CENTER
-    r=p.add_run();r.add_picture(str(ROOT/'figures'/(name+'.png')),width=Mm(170))
+    r=p.add_run();r.add_picture(str(ROOT/'figures'/(name+'.tiff')),width=Mm(170))
     docpr=d.inline_shapes[-1]._inline.docPr
     docpr.set('descr',title.split('. ',1)[1]+'. '+legend)
     p=d.add_paragraph()
@@ -256,7 +256,7 @@ def supp_doc():
     table(d,'Table S4. Descriptive performance by equipment category',['Equipment category','n','Reasoning correct','Search correct','Unresolved reference'],rows,[70,15,28,28,29],note='Percentages use the category count. These exploratory descriptive strata may be small and contain repeated models; no category-specific significance claims are made. English labels are translations of stored category names, not independent reclassification.')
     table(d,'Table S5. Literal string agreement within dual-output records',['Dual-output subset','n','Reasoning correct','Search correct'],[['Identical brand strings',186,175,175],['Different brand strings',180,130,151]],[80,20,35,35],note='These are descriptive literal-string subsets only. Different strings can be equivalent brands, including Chinese/English aliases. They must not be interpreted as a synonym-normalised disagreement analysis.')
     d.add_heading('S7 Reproduction and data access',level=1)
-    para(d,'Online Resource 2 provides aggregate statistical results and a reproducibility guide. Code, dependencies, study context and machine-readable aggregates are available at https://github.com/xuean009/hospital-equipment-metadata-recovery/tree/v1.0.0. Run code/analyze.py with --input pointing to the authorised workbook, followed by code/figures.py and code/build_documents.py. The latter two scripts also rebuild outputs directly from supplied aggregates. Only aggregate results are exported; individual records and API credentials are excluded. Record access requires hospital authorisation.')
+    para(d,'Online Resource 2 provides aggregate statistical results and a reproducibility guide. Code, dependencies, study context and machine-readable aggregates are available at https://github.com/xuean009/hospital-equipment-metadata-recovery/tree/v1.0.1. To rebuild figures and documents from supplied aggregates, run code/figures.py, code/build_documents.py and code/build_esm2.py in that order. On Windows with Microsoft Word installed, code/render_qa.ps1 exports both supplementary PDFs. Full record-level reanalysis additionally requires code/analyze.py with --input pointing to the authorised workbook before these steps. Only aggregate results are exported; individual records and API credentials are excluded. Record access requires hospital authorisation.')
     para(d,'Software versions: '+', '.join(f'{k} {v}' for k,v in S['versions'].items())+'. Figure and document dependencies are pinned in requirements.txt. The source workbook is read-only.')
     para(d,'Canonical source workbook: '+S['input_filename']+' (worksheet: 合并数据集).',10)
     para(d,'Source workbook SHA-256: '+S['input_sha256'],8)

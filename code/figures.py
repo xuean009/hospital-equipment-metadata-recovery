@@ -139,7 +139,7 @@ def fig1():
     tx(a,6,26,'Blinded to\nAI outputs',7.2,MUTED)
     line(a,[(56,37),(110,37)],'#DCE2E8',.5)
     tx(a,56,31,'Independent reference',8.5,weight='bold')
-    tx(a,56,24,'2 experts; each ≥8 years’ experience',7.1,MUTED)
+    tx(a,56,24,'2 experts; each >8 years’ experience',7.1,MUTED)
     tx(a,56,17,'946 agreed · 54 reconciled',8,weight='bold')
     tx(a,56,10,'Discussion and source rechecking',7.1,MUTED)
     arrow(a,[(110,17),(123,17)],LINE)

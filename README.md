@@ -10,14 +10,16 @@ Affiliation: Sichuan Cancer Hospital & Institute, Sichuan Clinical Research Cent
 
 Corresponding author: Zhenqi Zhang; 9xuean@gmail.com
 
-Prepared: 10 November 2026. Code and machine-readable aggregates are published in the repository below; no submission to the journal is performed by these scripts.
+Prepared: 10 November 2026. Version v1.0.1 corrects a figure-label inequality, completes the supplementary rebuild instructions and embeds existing 600 dpi figure exports; statistical results are unchanged. Version v1.0.0 remains available as the initial deposit. Code and machine-readable aggregates are published in the repository below; no submission to the journal is performed by these scripts.
 
-## Files and intended uses
+## Author deliverables and generated outputs
+
+The table below describes the author submission files and generated outputs. The public repository contains code, Markdown sources and aggregate data; the Word/PDF deliverables and figure exports are generated locally by the commands below. The cover letter and complete author delivery archive are not included in GitHub.
 
 | File | Use |
 |---|---|
-| Main_Manuscript.docx | Research article with three embedded figures and four editable tables |
-| Cover_Letter.docx | Editorial cover letter; excluded from the public supplement |
+| Main_Manuscript.docx | Research article with three embedded 600 dpi TIFF figures and four editable tables |
+| Cover_Letter.docx | Editorial cover letter; excluded from the public GitHub repository |
 | ESM_1.pdf | Online Resource 1, supplementary methods and results |
 | ESM_2.pdf | Online Resource 2, aggregate statistical results and reproducibility guide |
 | ESM_1.docx | Editable author source for Online Resource 1; submit the PDF |
@@ -28,7 +30,7 @@ The complete HISS_submission_package.zip is an author convenience bundle. Extrac
 
 ## Rebuild from aggregate data
 
-Download the fixed submission version from https://github.com/xuean009/hospital-equipment-metadata-recovery/tree/v1.0.0 into a clean directory (Code > Download ZIP), or clone https://github.com/xuean009/hospital-equipment-metadata-recovery and check out tag v1.0.0. Use Python 3.12 and install the pinned direct dependencies in an isolated environment:
+Download the fixed submission version from https://github.com/xuean009/hospital-equipment-metadata-recovery/tree/v1.0.1 into a clean directory (Code > Download ZIP), or clone https://github.com/xuean009/hospital-equipment-metadata-recovery and check out tag v1.0.1. Use Python 3.12 and install the pinned direct dependencies in an isolated environment:
 
 ```powershell
 python -m venv .venv
@@ -73,7 +75,7 @@ Conditional correctness values describe different output-selected populations. U
 
 ## Package integrity and access
 
-Run `python code/package_delivery.py` from the complete local author directory to rebuild HISS_submission_package.zip. The archive is for author convenience and is not a journal supplement. The public repository contains only explicitly selected code, manuscript source, prompts and aggregates. It excludes individual workbooks, secrets, local runtimes, proofs and author correspondence. The fixed submission tag is v1.0.0. Repository access: https://github.com/xuean009/hospital-equipment-metadata-recovery. No software reuse licence is asserted by this deposit.
+Run `python code/package_delivery.py` from the complete local author directory to rebuild HISS_submission_package.zip. The archive is for author convenience and is not a journal supplement. The public repository contains only explicitly selected code, manuscript source, prompts and aggregates. It excludes individual workbooks, secrets, local runtimes, proofs and author correspondence. The fixed submission tag is v1.0.1. Repository access: https://github.com/xuean009/hospital-equipment-metadata-recovery. No software reuse licence is asserted by this deposit.
 
 Record-level access remains restricted by the hospital. Requests should be addressed to the corresponding author and remain subject to institutional approval. The public repository reproduces figures and documents from aggregates; it does not independently reproduce record-level adjudication or grant access to the inventory.
 

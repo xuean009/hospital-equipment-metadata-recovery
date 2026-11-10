@@ -1,6 +1,6 @@
 """Validate HISS structure, aggregate invariants and exported Word proofs."""
 from pathlib import Path
-import sys,json,re,zipfile,hashlib
+import sys,json,re,zipfile,hashlib,io
 ROOT=Path(__file__).resolve().parents[1]
 if (ROOT/'.runtime').exists():sys.path.insert(0,str(ROOT/'.runtime'))
 import pymupdf
@@ -44,7 +44,7 @@ for name in ['Main_Manuscript','ESM_1','ESM_2','Cover_Letter']:
     assert '{{' not in text
     assert not re.search(r'Additional.file|BMC Health Services Research|\b(TODO|TBC|TBD)\b',text)
     assert 'ESM_2.zip' not in text
-    assert 'https://github.com/xuean009/hospital-equipment-metadata-recovery/tree/v1.0.0' in text
+    assert 'https://github.com/xuean009/hospital-equipment-metadata-recovery/tree/v1.0.1' in text
     if name=='ESM_2':
         assert len(d.tables)==9 and len(d.inline_shapes)==0
         assert S['input_sha256'] in text and '9xuean@gmail.com' in text
@@ -53,11 +53,18 @@ for name in ['Main_Manuscript','ESM_1','ESM_2','Cover_Letter']:
             assert [[c.text for c in r.cells] for r in actual.rows]==[[c.text for c in r.cells] for r in expected.rows]
     if name=='Main_Manuscript':
         assert len(d.tables)==4 and len(d.inline_shapes)==3
+        with zipfile.ZipFile(path) as archive:
+            media=[n for n in archive.namelist() if n.startswith('word/media/')]
+            assert len(media)==3
+            for item in media:
+                im=Image.open(io.BytesIO(archive.read(item)))
+                assert im.width/(170/25.4)>=599, 'Low-resolution embedded figure: '+item
         assert d.element.xpath('.//w:lnNumType[@w:restart="continuous"]')
         h=[p.text for p in d.paragraphs if p.style.name=='Heading 1']
         assert h.count('2 Methods')==1 and h.count('3 Results')==1
     if name=='ESM_1':
         assert len(d.tables)==5 and len(d.inline_shapes)==0
+        assert 'code/build_esm2.py' in text
         assert S['input_sha256'] in text and '9xuean@gmail.com' in text
         assert 'Health Information Science and Systems' in text
     proof=ROOT/'qa'/(name+'.pdf')
