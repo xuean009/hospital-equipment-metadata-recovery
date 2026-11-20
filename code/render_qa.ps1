@@ -6,7 +6,7 @@ $word = New-Object -ComObject Word.Application
 $word.Visible = $false
 $word.DisplayAlerts = 0
 try {
-    $documentNames = @('Main_Manuscript', 'ESM_1', 'ESM_2')
+    $documentNames = @('Main_Manuscript', 'Additional_file_1', 'Additional_file_2')
     if (Test-Path -LiteralPath (Join-Path $taskRoot 'Cover_Letter.docx')) { $documentNames += 'Cover_Letter' }
     foreach ($name in $documentNames) {
         $doc = $word.Documents.Open((Join-Path $taskRoot ($name + '.docx')), $false, $true)
@@ -18,6 +18,6 @@ try {
     }
 } finally { $word.Quit() }
 
-Copy-Item -LiteralPath (Join-Path $qaDirectory 'ESM_1.pdf') -Destination (Join-Path $taskRoot 'ESM_1.pdf') -Force
+Copy-Item -LiteralPath (Join-Path $qaDirectory 'Additional_file_1.pdf') -Destination (Join-Path $taskRoot 'Additional_file_1.pdf') -Force
 
-Copy-Item -LiteralPath (Join-Path $qaDirectory 'ESM_2.pdf') -Destination (Join-Path $taskRoot 'ESM_2.pdf') -Force
+Copy-Item -LiteralPath (Join-Path $qaDirectory 'Additional_file_2.pdf') -Destination (Join-Path $taskRoot 'Additional_file_2.pdf') -Force

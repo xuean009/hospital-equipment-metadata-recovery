@@ -1,4 +1,4 @@
-"""HISS figures: a restrained, editable 170-mm-wide publication system.
+"""BMC_MIDM figures: a restrained, editable 170-mm-wide publication system.
 
 Figure 1: study-design schematic; independent reference precedes AI scoring.
 Figure 2: paired alluvial evidence plus cluster-bootstrap effect estimates.

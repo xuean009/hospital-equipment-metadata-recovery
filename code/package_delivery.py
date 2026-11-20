@@ -1,4 +1,4 @@
-"""Package HISS submission assets using an explicit public-file allowlist."""
+"""Package BMC_MIDM submission assets using an explicit public-file allowlist."""
 from pathlib import Path
 import hashlib,json,zipfile
 ROOT=Path(__file__).resolve().parents[1]
@@ -19,12 +19,12 @@ def archive(name,files):
     print(f'{name}: {len(entries)} files plus manifest; integrity PASS')
 def main():
     shared=[ROOT/n for n in ['README.md','requirements.txt','reference_verification.csv','PACKAGE_METADATA.json']]
-    shared += [ROOT/'code'/n for n in ['analyze.py','figures.py','build_documents.py','build_esm2.py','manuscript.md','package_delivery.py','qa.py','render_qa.ps1']]
+    shared += [ROOT/'code'/n for n in ['analyze.py','figures.py','build_documents.py','build_additional2.py','manuscript.md','package_delivery.py','qa.py','render_qa.ps1']]
     shared += [ROOT/'source_data'/n for n in ['analysis_summary.json','category_results.csv','figure_source_data.csv','original_prompts.json','study_context.json','Table_1.csv','Table_2.csv','Table_3.csv','Table_4.csv','Table_S1.csv','Table_S2.csv','Table_S3.csv','Table_S4.csv','Table_S5.csv']]
-    # Code is deposited in GitHub; Online Resource 2 is a PDF.
-    complete=shared+[ROOT/n for n in ['Main_Manuscript.docx','Main_Manuscript.md','ESM_1.docx','ESM_1.pdf','ESM_2.docx','ESM_2.pdf','Cover_Letter.docx','Cover_Letter.md','修改说明与核查报告.md','投稿文件清单.md','一致性复查报告.md']]
+    # Code is deposited in GitHub; Additional file 2 is a PDF.
+    complete=shared+[ROOT/n for n in ['Main_Manuscript.docx','Main_Manuscript.md','Additional_file_1.docx','Additional_file_1.pdf','Additional_file_2.docx','Additional_file_2.pdf','Cover_Letter.docx','Cover_Letter.md','修改说明与核查报告.md','投稿文件清单.md']]
     complete += [p for p in (ROOT/'figures').iterdir() if p.suffix in {'.svg','.pdf','.tiff','.png'}]
     assert len([p for p in complete if p.parent.name=='figures'])==12
-    archive('HISS_submission_package.zip',complete)
+    archive('BMC_MIDM_submission_package.zip',complete)
 if __name__=='__main__':main()
 

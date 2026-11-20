@@ -2,14 +2,17 @@
   "affiliation": "Sichuan Cancer Hospital & Institute, Sichuan Clinical Research Center for Cancer, Sichuan Cancer Center, Affiliated Cancer Hospital of University of Electronic Science and Technology of China, Chengdu 610041, China",
   "corresponding_author": "Zhenqi Zhang",
   "article_title": "Reliability of generative AI workflows for recovering missing hospital equipment metadata: an expert-verified paired evaluation",
-  "prepared_on": "2026-11-10",
+  "prepared_on": "2026-11-20",
   "email": "9xuean@gmail.com",
   "resource": "Public code and aggregate data repository",
-  "journal": "Health Information Science and Systems",
+  "journal": "BMC Medical Informatics and Decision Making",
   "authors": [
     "Yihan Qi",
     "Zhenqi Zhang"
   ],
   "repository": "https://github.com/xuean009/hospital-equipment-metadata-recovery",
-  "submission_version": "v1.0.1"
+  "submission_version": "v1.1.0",
+  "prior_submission_version": "v1.0.1",
+  "revision_scope": "Journal transfer; study data, analyses and results unchanged",
+  "finalised_on": "2026-11-21"
 }

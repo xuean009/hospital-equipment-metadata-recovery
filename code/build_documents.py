@@ -27,7 +27,9 @@ def setup(line_numbers=True):
     for name in ['Normal','Title','Subtitle','Heading 1','Heading 2','Heading 3']:
         st=d.styles[name];st.font.name='Arial';st.font.color.rgb=RGBColor(0,0,0)
         st.font.underline=False
-        st._element.get_or_add_rPr().rFonts.set(qn('w:eastAsia'),'Microsoft YaHei')
+        st._element.get_or_add_rPr().rFonts.set(qn('w:eastAsia'),'Arial Unicode MS')
+        for attr in ['asciiTheme','hAnsiTheme','eastAsiaTheme','csTheme']:
+            st._element.get_or_add_rPr().rFonts.attrib.pop(qn('w:'+attr),None)
     for st in d.styles:
         for border in list(st._element.iter(qn('w:pBdr'))):border.getparent().remove(border)
         if hasattr(st,'paragraph_format'):
@@ -42,7 +44,9 @@ def setup(line_numbers=True):
     if line_numbers:
         ln=OxmlElement('w:lnNumType');ln.set(qn('w:countBy'),'1');ln.set(qn('w:restart'),'continuous');ln.set(qn('w:distance'),'170');sec._sectPr.append(ln)
     footer=sec.footer.paragraphs[0];footer.alignment=WD_ALIGN_PARAGRAPH.CENTER
-    r=footer.add_run();fld=OxmlElement('w:fldSimple');fld.set(qn('w:instr'),'PAGE');r._r.append(fld)
+    fld=OxmlElement('w:fldSimple');fld.set(qn('w:instr'),'PAGE')
+    run=OxmlElement('w:r');value=OxmlElement('w:t');value.text='1'
+    run.append(value);fld.append(run);footer._p.append(fld)
     d.core_properties.author='Yihan Qi; Zhenqi Zhang'
     return d
 def para(d,text,size=None):
@@ -101,7 +105,7 @@ def build_tables(d):
     rows=[['Eligible source records','1101'],['Sampled paired records','1000'],['Asset years in source pool',C['asset_years']],['Brand-field status at pool entry','Missing'],['Model execution period',C['model_run_period']],['Expert assessment period',C['expert_review_period']],['Equipment categories','24'],['Distinct name–model combinations','418'],['Combinations occurring more than once','164'],['Initial expert agreement','946/1000 (94.6%)'],['Disagreements reconciled','54/1000 (5.4%)'],['Confirmed reference brand','744/1000 (74.4%)'],['Unresolved reference brand','256/1000 (25.6%)']]
     rows += [[CAT[i],nper(v['n'])] for i,v in enumerate(S['categories'][:5])]
     rows += [['Other 19 categories',nper(sum(v['n'] for v in S['categories'][5:]))]]
-    table(d,'Table 1. Inventory characteristics and expert reference assessment',['Characteristic','Value'],rows,[112,58],note='The final six rows give the five largest equipment categories and the remainder. The full 24-category distribution is in Online Resource 1. The source pool was preselected for missing brand fields and the 2010–2025 asset-year window. Years were not inferred from asset identifiers.')
+    table(d,'Table 1. Inventory characteristics and expert reference assessment',['Characteristic','Value'],rows,[112,58],note='The final six rows give the five largest equipment categories and the remainder. The full 24-category distribution is in Additional file 1. The source pool was preselected for missing brand fields and the 2010–2025 asset-year window. Years were not inferred from asset identifiers.')
     rows=[['Verified correct brand yield',nper(308),nper(524)],['Specific brand output coverage',nper(373),nper(720)],['Correct among specific outputs',f'308/373 (82.6%)',f'524/720 (72.8%)'],['Correct among confirmed references','308/744 (41.4%)','524/744 (70.4%)'],['Incorrect assignment',nper(60),nper(121)],['Unverified assignment',nper(5),nper(75)],['Missed identification',nper(376),nper(99)],['Both workflow and reference unknown',nper(251),nper(181)],['All unknown outputs',nper(627),nper(280)],['Total recorded processing time, s','36,785.51','32,614.01'],['Median processing time (IQR), s','35.18 (30.20–41.90)','31.27 (23.88–38.57)']]
     table(d,'Table 2. Brand identification and assignment outcomes',['Outcome','Reasoning','Web-enabled search'],rows,[86,42,42],note='Unless another denominator is shown, percentages use all 1,000 records. Correct, incorrect, unverified, missed identification and both unknown partition the sample. Other rows overlap these categories and must not be summed. Conditional correctness compares different output-selected subsets. IQR, interquartile range. Time is not human labour.')
     rows=[[label,*S['paired3'][i],sum(S['paired3'][i])] for i,label in enumerate(['Correct','Not correct','Both unknown'])]
@@ -184,8 +188,8 @@ def main_doc():
     ab=src.split('## Abstract')[1].split('Keywords:')[0]
     ab=re.sub(r'### \w+','',ab)
     wc=len(re.findall(r"\b[\w]+(?:[’'-][\w]+)*\b",ab))
-    assert 150<=wc<=250,wc
-    (ROOT/'qa'/'word_counts.json').write_text(json.dumps({'abstract_words':wc,'body_words':len(src.split('\n## 1 Introduction\n')[1].split('\n## List of abbreviations')[0].split()),'total_text_words':len(src.split())},indent=2),encoding='utf-8')
+    assert 0<wc<=350,wc
+    (ROOT/'qa'/'word_counts.json').write_text(json.dumps({'abstract_words':wc,'body_words':len(src.split('\n## 1 Background\n')[1].split('\n## List of abbreviations')[0].split()),'total_text_words':len(src.split())},indent=2),encoding='utf-8')
 
 def cover_doc():
     source=ROOT/'Cover_Letter.md'
@@ -196,7 +200,7 @@ def cover_doc():
     d.styles['Normal'].paragraph_format.space_after=Pt(7)
     for block in source.read_text(encoding='utf-8').strip().split('\n\n'):
         para(d,block)
-    d.core_properties.title='Cover letter to Health Information Science and Systems'
+    d.core_properties.title='Cover letter to BMC Medical Informatics and Decision Making'
     d.save(ROOT/'Cover_Letter.docx')
 
 def prompts():
@@ -213,9 +217,9 @@ def prompts():
 
 def supp_doc():
     d=setup(False);d.styles['Normal'].paragraph_format.line_spacing=1.5
-    d.add_paragraph('Online Resource 1\nSupplementary methods and results','Title')
+    d.add_paragraph('Additional file 1\nSupplementary methods and results','Title')
     para(d,'Reliability of generative AI workflows for recovering missing hospital equipment metadata: an expert-verified paired evaluation')
-    para(d,'Health Information Science and Systems')
+    para(d,'BMC Medical Informatics and Decision Making')
     para(d,'Yihan Qi and Zhenqi Zhang')
     para(d,'Sichuan Cancer Hospital & Institute, Sichuan Clinical Research Center for Cancer, Sichuan Cancer Center, Affiliated Cancer Hospital of University of Electronic Science and Technology of China, Chengdu 610041, China')
     para(d,'Corresponding author: Zhenqi Zhang; Email: 9xuean@gmail.com')
@@ -238,6 +242,8 @@ def supp_doc():
             para(d,m['role'].capitalize()+' message').paragraph_format.keep_with_next=True
             for line in m['content'].splitlines():
                 p=para(d,line,9);p.paragraph_format.line_spacing=1.1;p.paragraph_format.space_after=Pt(2)
+                if line.rstrip().endswith((':','：')) or line.strip()=='{':
+                    p.paragraph_format.keep_with_next=True
     d.add_heading('S4 English translations of the prompts',level=1)
     para(d,'The translations below document the original Chinese instructions; they were not used for model calls. [DEVICE NAME] and [SPECIFICATION/MODEL] mark substituted record fields.')
     translations=[('Reasoning system','You are a medical and general equipment asset standardisation assistant. Based on the equipment name and specification/model, infer the most likely brand and a generic standardised name suitable for consistent asset-ledger naming. Think as concisely as possible, then output only JSON. You must output only JSON, with no additional explanation.'),('Reasoning user','Output JSON with brand (use unknown if unknown), generic_name (a standardised equipment name suitable for a fixed-asset ledger, as standardised and concise as possible), confidence (0.0), and reason (a one-sentence explanation of the basis for the judgement). Requirements: (1) prioritise the specification/model when identifying the brand; (2) return unknown for brand if it cannot be reliably determined; (3) generic_name must not simply copy the model and should be a standardised equipment name; (4) confidence ranges from 0 to 1. Input: equipment name [DEVICE NAME]; specification/model [SPECIFICATION/MODEL].'),('Search system','You are a medical and general equipment asset standardisation assistant. Combine web-search results with the equipment name and specification/model to infer the most likely brand and a generic standardised name suitable for consistent asset-ledger naming. You must output only JSON, with no additional explanation.'),('Search user','Output JSON with brand (use unknown if unknown), generic_name (a standardised equipment name suitable for a fixed-asset ledger, as standardised and concise as possible), confidence (0.0), and reason (briefly explain the basis for the judgement; web-search clues may be cited). Requirements: (1) prioritise the specification/model and supplement with web search if needed; (2) return unknown for brand if it cannot be reliably determined; (3) generic_name must not simply copy the model and should be a standardised equipment name; (4) output must be valid JSON. Input: equipment name [DEVICE NAME]; specification/model [SPECIFICATION/MODEL].')]
@@ -256,13 +262,13 @@ def supp_doc():
     table(d,'Table S4. Descriptive performance by equipment category',['Equipment category','n','Reasoning correct','Search correct','Unresolved reference'],rows,[70,15,28,28,29],note='Percentages use the category count. These exploratory descriptive strata may be small and contain repeated models; no category-specific significance claims are made. English labels are translations of stored category names, not independent reclassification.')
     table(d,'Table S5. Literal string agreement within dual-output records',['Dual-output subset','n','Reasoning correct','Search correct'],[['Identical brand strings',186,175,175],['Different brand strings',180,130,151]],[80,20,35,35],note='These are descriptive literal-string subsets only. Different strings can be equivalent brands, including Chinese/English aliases. They must not be interpreted as a synonym-normalised disagreement analysis.')
     d.add_heading('S7 Reproduction and data access',level=1)
-    para(d,'Online Resource 2 provides aggregate statistical results and a reproducibility guide. Code, dependencies, study context and machine-readable aggregates are available at https://github.com/xuean009/hospital-equipment-metadata-recovery/tree/v1.0.1. To rebuild figures and documents from supplied aggregates, run code/figures.py, code/build_documents.py and code/build_esm2.py in that order. On Windows with Microsoft Word installed, code/render_qa.ps1 exports both supplementary PDFs. Full record-level reanalysis additionally requires code/analyze.py with --input pointing to the authorised workbook before these steps. Only aggregate results are exported; individual records and API credentials are excluded. Record access requires hospital authorisation.')
+    para(d,'Additional file 2 provides aggregate statistical results and a reproducibility guide. Code, dependencies, study context and machine-readable aggregates are available at https://github.com/xuean009/hospital-equipment-metadata-recovery/tree/v1.1.0. To rebuild figures and documents from supplied aggregates, run code/figures.py, code/build_documents.py and code/build_additional2.py in that order. On Windows with Microsoft Word installed, code/render_qa.ps1 exports both supplementary PDFs. Full record-level reanalysis additionally requires code/analyze.py with --input pointing to the authorised workbook before these steps. Only aggregate results are exported; individual records and API credentials are excluded. Record access requires hospital authorisation.')
     para(d,'Software versions: '+', '.join(f'{k} {v}' for k,v in S['versions'].items())+'. Figure and document dependencies are pinned in requirements.txt. The source workbook is read-only.')
     para(d,'Canonical source workbook: '+S['input_filename']+' (worksheet: 合并数据集).',10)
     para(d,'Source workbook SHA-256: '+S['input_sha256'],8)
     d.add_heading('S8 Reporting boundaries',level=1)
     para(d,'This evaluation is retrospective and single-centre, with one retained result per workflow and record. It has no training/test split because the workflows were applied without task-specific fitting. Review strata were explored on the evaluated sample, not validated independently. Bootstrap draws are statistical resamples, not technical replicates of AI inference. No patient outcomes, deployed correction rate, human time saving or economic benefit were measured.')
-    d.save(ROOT/'ESM_1.docx')
+    d.save(ROOT/'Additional_file_1.docx')
     (ROOT/'source_data'/'original_prompts.json').write_text(json.dumps(pp,ensure_ascii=False,indent=2),encoding='utf-8')
     with (ROOT/'source_data'/'category_results.csv').open('w',newline='',encoding='utf-8-sig') as f:
         cw=csv.writer(f);cw.writerow(['category_original','category_english','n','reasoning_correct','search_correct','unresolved'])
