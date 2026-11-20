@@ -11,8 +11,9 @@
     "Zhenqi Zhang"
   ],
   "repository": "https://github.com/xuean009/hospital-equipment-metadata-recovery",
-  "submission_version": "v1.1.0",
+  "submission_version": "v1.1.1",
   "prior_submission_version": "v1.0.1",
-  "revision_scope": "Journal transfer; study data, analyses and results unchanged",
-  "finalised_on": "2026-11-21"
+  "revision_scope": "Second editorial and statistical-reporting audit; study data, analyses and numerical results unchanged",
+  "finalised_on": "2026-11-21",
+  "previous_release": "v1.1.0"
 }

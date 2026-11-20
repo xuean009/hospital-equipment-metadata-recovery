@@ -48,7 +48,7 @@ for name in ['Main_Manuscript','Additional_file_1','Additional_file_2','Cover_Le
     assert '{{' not in text
     assert not re.search(r'Online Resource|ESM_[12]|Health Information Science and Systems|BMC Health Services Research|\b(TODO|TBC|TBD)\b',text)
     assert 'Additional_file_2.zip' not in text
-    assert 'https://github.com/xuean009/hospital-equipment-metadata-recovery/tree/v1.1.0' in text
+    assert 'https://github.com/xuean009/hospital-equipment-metadata-recovery/tree/v1.1.1' in text
     if name=='Additional_file_2':
         assert len(d.tables)==9 and len(d.inline_shapes)==0
         assert S['input_sha256'] in text and '9xuean@gmail.com' in text

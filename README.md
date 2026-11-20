@@ -10,7 +10,7 @@ Affiliation: Sichuan Cancer Hospital & Institute, Sichuan Clinical Research Cent
 
 Corresponding author: Zhenqi Zhang; 9xuean@gmail.com
 
-Version: **v1.1.0**, prepared 20 November 2026. This journal-transfer revision updates framing, references, declarations, supplementary-file names and reproducibility documentation. Study data, workflow settings, analyses and numerical results are unchanged. It does not report new model calls, a new governance framework, clinical decision-support performance, patient outcomes or deployment benefits. The earlier HISS deposits remain available under tags v1.0.0 and v1.0.1. Preparing this package does not submit it to a journal.
+Version: **v1.1.1**, finalised 21 November 2026. This journal-transfer revision updates framing, references, declarations, supplementary-file names and reproducibility documentation. Study data, workflow settings, analyses and numerical results are unchanged. It does not report new model calls, a new governance framework, clinical decision-support performance, patient outcomes or deployment benefits. The earlier HISS deposits remain available under tags v1.0.0 and v1.0.1, and the initial BMC transfer remains available as v1.1.0. Preparing this package does not submit it to a journal.
 
 ## Public contents and author deliverables
 
@@ -29,7 +29,7 @@ The local BMC_MIDM_submission_package.zip is an author convenience archive. Extr
 
 ## Rebuild from aggregate data
 
-Use the fixed version at https://github.com/xuean009/hospital-equipment-metadata-recovery/tree/v1.1.0. Clone the repository and check out v1.1.0, or download that tag as a ZIP. Use Python 3.12 and an isolated environment:
+Use the fixed version at https://github.com/xuean009/hospital-equipment-metadata-recovery/tree/v1.1.1. Clone the repository and check out v1.1.1, or download that tag as a ZIP. Use Python 3.12 and an isolated environment:
 
 ```sh
 python -m venv .venv
@@ -87,4 +87,8 @@ These analyses do not measure repeated AI-call variability, generalisation to ot
 
 Run `python code/package_delivery.py` only from the complete private author directory to create the delivery ZIP and its SHA-256 manifest. The script does not publish anything. Public files exclude individual workbooks, secrets, proofs and correspondence. No software reuse licence is asserted by this deposit.
 
-reference_verification.csv maps the 20 references to their sources and roles. Nineteen references are retained from the preceding manuscript and reformatted to Vancouver style; the versioned repository citation is added. WHO's equipment information-system guidance and the two BMC data-quality reviews were rechecked for this transfer. Other retained verification dates remain explicit; the CoT-CC citation supports contextual discussion only.
+reference_verification.csv maps the 20 references to their sources and roles. Nineteen references are retained from the preceding manuscript and reformatted to Vancouver style; the versioned repository citation is added. WHO's equipment information-system guidance and the two BMC data-quality reviews were rechecked for this transfer. A second audit on 21 November 2026 checked all 13 article DOIs against Crossref and additional publisher/PubMed sources, and checked the five WHO publications and two web/repository references. The CoT-CC citation supports contextual discussion only.
+
+## v1.1.1 editorial audit
+
+Specifies cluster-bootstrap intervals when describing adjustment for repeated name–model combinations, adds the omitted IQR abbreviation, replaces an unexplained guideline acronym with descriptive wording, clarifies that the two evaluated workflows were not rerun, and refreshes citation-verification notes. The manuscript title, Methods, Results, statistical code and all aggregate data are unchanged apart from the versioned repository reference.
